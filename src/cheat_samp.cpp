@@ -729,6 +729,17 @@ void cmd_showCMDS(char *)
 	}
 }
 
+void cmd_reconnect(char *)
+{
+    if (cheat_state->_generic.cheat_panic_enabled)
+    {
+        addMessageToChatWindow(M0D_NAME " has to be enabled before you use this command.");
+        return;
+    }
+    addMessageToChatWindow("Reconnection is in process...");
+    changeServer(g_SAMP->szIP, g_SAMP->ulPort, "", true);
+}
+
 void initChatCmds(void)
 {
 	if (g_m0dCommands == true)
@@ -749,4 +760,5 @@ void initChatCmds(void)
 	addClientCommand("mod_setclass", cmd_setclass);
 	addClientCommand("mod_fakekill", cmd_fakekill);
 	addClientCommand("mod_warp", cmd_warp);
+    addClientCommand("mod_reconnect", cmd_reconnect);
 }

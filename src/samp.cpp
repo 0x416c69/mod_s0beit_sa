@@ -824,7 +824,7 @@ void sendDeath(void)
 		(g_Players->pLocalPlayer);
 }
 
-void changeServer(const char *pszIp, unsigned ulPort, const char *pszPassword)
+void changeServer(const char *pszIp, unsigned ulPort, const char *pszPassword, bool bDontChangePW)
 {
 	if (!g_SAMP)
 		return;
@@ -834,7 +834,7 @@ void changeServer(const char *pszIp, unsigned ulPort, const char *pszPassword)
 	disconnect(500);
 	strcpy(g_SAMP->szIP, pszIp);
 	g_SAMP->ulPort = ulPort;
-	setPassword(pszPassword);
+	if (!bDontChangePW) setPassword(pszPassword);
 	g_iJoiningServer = 1;
 }
 

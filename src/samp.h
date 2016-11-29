@@ -1052,7 +1052,7 @@ void											setSpecialAction(uint8_t byteSpecialAction);
 void											sendSCMEvent(int iEvent, int iVehicleID, int iParam1, int iParam2);
 void											toggleSAMPCursor(int iToggle);
 void											sendDeath(void);
-void											changeServer(const char *pszIp, unsigned ulPort, const char *pszPassword);
+void											changeServer(const char *pszIp, unsigned ulPort, const char *pszPassword, bool bDontChangePW = false);
 void											updateScoreboardData(void);
 void											toggleOffScoreboard(void);
 
